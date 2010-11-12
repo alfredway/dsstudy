@@ -50,7 +50,16 @@ public class ListTest<T> {
 	}
 	
 	//将一个列表中的值反转
-	public void reverseList(ListTest<String> list){
+	public void reverseList(ListTest<T> list){
+		ListTest<T> rtn=new ListTest<T>();
+		while(list!=null){
+			rtn.addByHead(list.val);
+//			rtn.addByTail(list.val);
+			list=list.next;
+		}
+		System.out.println("======");
+		rtn.print();
+		list=rtn;
 		
 	}
 	
@@ -76,6 +85,9 @@ public class ListTest<T> {
 		for(String s:strArr){
 			list.addByTail(s);
 		}
+		list.print();
+		
+		list.reverseList(list);
 		list.print();
 
 	}
